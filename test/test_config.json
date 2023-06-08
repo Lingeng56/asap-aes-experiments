@@ -1,0 +1,14 @@
+{
+  "experiment_id": "test_rsmtool",
+  "model": "LinearRegression",
+  "train_file": "../data/train.csv",
+  "test_file": "../data/test.csv",
+  "id_column": "essay_id",
+  "train_label_column": "score",
+  "test_label_column": "score",
+  "features": ["WORDS", "LOGWORDS", "TYPES", "LOGTYPES", "%FUNC",
+                 "%QUESTION", "%EXCLAIM", "AVG_WLEN", "SD_WLEN",
+                 "AVG_WFREQ", "SD_WFREQ", "%CC", "%CD", "%DT", "%IN",
+                 "%JJ", "%MD", "%NN", "%PRP", "%RB", "%VB",
+                 "%MISSPELLED", "%REPEATED", "LM", "IS_NATIVE"]
+}
