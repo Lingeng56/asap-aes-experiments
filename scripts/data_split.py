@@ -10,7 +10,7 @@ def split_data(args):
     """
     data = pd.read_csv(args.data_path)
     train_data, test_data = train_test_split(data, test_size=0.4, random_state=args.random_seed)
-    test_data, valid_data = train_data(test_data, test_size=0.5, random_state=args.random_seed)
+    test_data, valid_data = train_test_split(test_data, test_size=0.5, random_state=args.random_seed)
     train_data = train_data.rename({'essay': 'text'})
     test_data = test_data.rename({'essay': 'text'})
     valid_data = valid_data.rename({'essay': 'text'})
@@ -27,4 +27,6 @@ if __name__ == '__main__':
     parser.add_argument('--train_path', type=str, required=True)
     parser.add_argument('--test_path', type=str, required=True)
     parser.add_argument('--valid_path', type=str, required=True)
-    parser.add_argument('--random_seed', type=int, required=True, default=42)
+    parser.add_argument('--random_seed', type=int, default=42)
+    args = parser.parse_args()
+    split_data(args)
