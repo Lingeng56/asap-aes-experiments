@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>论文打分</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}">
+    <script src="{{url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center mt-3">
+            <div class="col-2"></div>
+            <div class="col align-self-center">
+                <h2>论文打分系统</h2>
+                <div class="mt-5">
+                    <form method="post">
+                        <div class="form-contorl row">
+                            <div class="col-10">
+                                <select class="form-select" name="model">
+                                    {% for m in models %}
+                                    <option value="{{loop.index}}" {% if loop.first %}selected disabled{% endif %}>{{ m }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-dark">计算分数</button>
+                            </div>
+                        </div>
+                        <div class="input-group mt-3">
+                            <span class="input-group-text">#</span>
+                            <textarea class="form-control" name="essay" placeholder="在此粘贴论文文本..." rows="20"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <div class="container-fluid fixed-bottom">
+        <div class="row text-center bg-light text-dark py-3 mt-5">
+            <div>文本内容计算&nbsp;2023</div>
+        </div>
+    </div>
+</body>
+
+</html>
