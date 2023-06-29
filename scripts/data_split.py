@@ -30,3 +30,4 @@ if __name__ == '__main__':
     parser.add_argument('--random_seed', type=int, default=42)
     args = parser.parse_args()
     split_data(args)
+git
